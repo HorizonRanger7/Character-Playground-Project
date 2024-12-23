@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 10f;
     [Tooltip("How high the player jumps.")]
 
-    bool grounded = true;
+    public bool grounded = true;
 
     private Rigidbody rb;
 
@@ -58,6 +58,13 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
+        //This code makes it so that pressing Space makes the player "jump", but only when they are on the ground.
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
+            Jump();
+            
+        }
+
     }
 
 
@@ -90,9 +97,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Code for jumping. Status: Unused.
-     private void Jump()
+    void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, jumpForce);
+        transform.position += Vector3.up * jumpForce * Time.deltaTime;
         grounded = false;
 
     }
