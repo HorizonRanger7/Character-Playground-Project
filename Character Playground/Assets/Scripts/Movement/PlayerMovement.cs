@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         //This code makes it so that pressing S moves the player backwards.
         if (Input.GetKey(KeyCode.S))
         {
-            MoveBackwards();
+            MoveBack();
             
         }
 
@@ -66,25 +66,25 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveForward()
     {
-        rb.AddForce(Vector3.forward * playerSpeed * Time.deltaTime);
+        transform.position += Vector3.forward * playerSpeed * Time.deltaTime;
 
     }
 
      
     void MoveLeft()
     {
-        rb.AddForce(Vector3.left * playerSpeed * Time.deltaTime);
+        transform.position += Vector3.left * playerSpeed * Time.deltaTime;
 
     }
 
     void MoveRight()
     {
-        rb.AddForce(Vector3.right * playerSpeed * Time.deltaTime);
+        transform.position += Vector3.right * playerSpeed * Time.deltaTime;
     }
 
-    void MoveBackwards()
+    void MoveBack()
     {
-        rb.AddForce(Vector3.up * playerSpeed * Time.deltaTime);
+        transform.position += Vector3.back * playerSpeed * Time.deltaTime;
 
     }
 
