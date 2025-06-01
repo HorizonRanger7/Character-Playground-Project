@@ -5,6 +5,11 @@ namespace Invector.vCharacterController
 {
     public class vThirdPersonAnimator : vThirdPersonMotor
     {
+
+    //Variables...this "#region" command appears to group them together for simplification (I'd assume).
+    
+    //"Const" sets a variable as a constant, preventing it from being changed.
+
         #region Variables                
 
         public const float walkSpeed = 0.5f;
@@ -13,10 +18,16 @@ namespace Invector.vCharacterController
 
         #endregion  
 
+
+    //This method is for updating the animator...whatever that means.
+
+    //Virtual is used to mark when a method can be overriden by a submethod. I think. 
         public virtual void UpdateAnimator()
         {
+            //"||" means OR in an if statement. "Return" means to exit the method early if these conditions are met. 
             if (animator == null || !animator.enabled) return;
 
+            //The variables and methods here are from the "ThirdPersonMotor" script.
             animator.SetBool(vAnimatorParameters.IsStrafing, isStrafing); ;
             animator.SetBool(vAnimatorParameters.IsSprinting, isSprinting);
             animator.SetBool(vAnimatorParameters.IsGrounded, isGrounded);
@@ -50,6 +61,8 @@ namespace Invector.vCharacterController
         }
     }
 
+
+// Stuff for animation, I assume.
     public static partial class vAnimatorParameters
     {
         public static int InputHorizontal = Animator.StringToHash("InputHorizontal");

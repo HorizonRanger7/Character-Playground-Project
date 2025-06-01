@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
     //Code for jumping. Status: Unused.
     void Jump()
     {
-        transform.position += Vector3.up * jumpForce * Time.deltaTime;
+        rb.AddForce(Vector3.up * jumpForce * Time.deltaTime);
         grounded = false;
 
     }
